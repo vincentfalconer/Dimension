@@ -38,6 +38,9 @@
 	 * Panel-ify an element.
 	 * @param {object} userConfig User config.
 	 * @return {jQuery} jQuery object.
+	 * @param {object} userConfig - Panel configuration.
+	 *        userConfig.target: Specify a selector string or a jQuery object. If string, only selector is accepted (not HTML).
+	 *        Providing untrusted user input to 'target' may result in a security vulnerability.
 	 */
 	$.fn.panel = function(userConfig) {
 
@@ -95,9 +98,16 @@
 			}, userConfig);
 
 			// Expand "target" if it's not a jQuery object already.
-				if (typeof config.target != 'jQuery')
+				// Note: If 'target' is provided as a string, treat it as a selector only (never as HTML).
+				if (typeof config.target === 'string') {
+					// Safe resolution: interpret as selector, never as HTML.
+					config.target = $.find(config.target);
 					config.target = $(config.target);
-
+				}
+				// If it's not a string or jQuery object, try to wrap as jQuery object directly
+				else if (!config.target || typeof config.target !== 'object' || !('jquery' in config.target)) {
+					config.target = $(config.target);
+				}
 		// Panel.
 
 			// Methods.
