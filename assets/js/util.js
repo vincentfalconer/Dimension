@@ -39,8 +39,8 @@
 	 * @param {object} userConfig User config.
 	 * @return {jQuery} jQuery object.
 	 * @param {object} userConfig - Panel configuration.
-	 *        userConfig.target: Specify a selector string or a jQuery object. If string, only selector is accepted (not HTML).
-	 *        Providing untrusted user input to 'target' may result in a security vulnerability.
+	 *        userConfig.target: Must be a selector string or a jQuery object. If a string, only a valid CSS selector is allowed (never HTML).
+	 *        WARNING: Never provide untrusted user input to 'target'. Arbitrary HTML is strictly disallowed. Supplying values like "<div>...</div>" is unsafe and will be rejected.
 	 */
 	$.fn.panel = function(userConfig) {
 
@@ -100,8 +100,10 @@
 			// Expand "target" if it's not a jQuery object already.
 				// Note: If 'target' is provided as a string, treat it as a selector only (never as HTML).
 				if (typeof config.target === 'string') {
-					// Safe resolution: interpret as selector, never as HTML.
-					config.target = $.find(config.target);
+					// Secure resolution: Only allow CSS selectors, never HTML.
+					if (/^\s*</.test(config.target)) {
+						throw new Error('Unsafe value for panel "target": HTML is not allowed; only selectors are permitted.');
+					}
 					config.target = $(config.target);
 				}
 				// If it's not a string or jQuery object, try to wrap as jQuery object directly
