@@ -7,15 +7,17 @@
 	$.fn.navList = function() {
 
 	let $this = $(this);
-			let $a = $this.find('a'),
+let $a = $this.find('a');
+let ;
 			let b = [];
 
 		$a.each(function() {
 
-		let $this = $(this),
+let $this = $(this);
+let ;
 				indent = Math.max(0, $this.parents('li').length - 1),
 				href = $this.attr('href'),
-let 				target = $this.attr('target');
+				target = $this.attr('target');
 
 			b.push(
 				'<a ' +
@@ -48,7 +50,7 @@ let 				target = $this.attr('target');
 		// Multiple elements?
 			if (this.length > 1) {
 
-let 				for (let i=0; i < this.length; i++)
+				for (let i=0; i < this.length; i++)
 					$(this[i]).panel(userConfig);
 
 				return $this;
@@ -56,7 +58,8 @@ let 				for (let i=0; i < this.length; i++)
 			}
 
 		// Vars.
-		let $this = $(this),
+let $this = $(this);
+let ;
 				$body = $('body'),
 				$window = $(window),
 				id = $this.attr('id'),
@@ -96,7 +99,7 @@ let 				for (let i=0; i < this.length; i++)
 
 			// Expand "target" if it's not a jQuery object already.
 				if (typeof config.target !== 'jQuery')
-let 					config.target = $(config.target);
+					config.target = $(config.target);
 
 		// Panel.
 
@@ -149,7 +152,8 @@ let 					config.target = $(config.target);
 					$this
 						.on('click', 'a', function(event) {
 
-							let $a = $(this),
+let let $a = $(this);
+let ;
 								href = $a.attr('href'),
 								target = $a.attr('target');
 
@@ -169,7 +173,7 @@ let 					config.target = $(config.target);
 									if (target === '_blank')
 										window.open(href);
 									else
-let 										window.location.href = href;
+										window.location.href = href;
 
 								}, config.delay + 10);
 
@@ -180,8 +184,8 @@ let 										window.location.href = href;
 			// Event: Touch stuff.
 				$this.on('touchstart', function(event) {
 
-let 					$this.touchPosX = event.originalEvent.touches[0].pageX;
-let 					$this.touchPosY = event.originalEvent.touches[0].pageY;
+					$this.touchPosX = event.originalEvent.touches[0].pageX;
+					$this.touchPosY = event.originalEvent.touches[0].pageY;
 
 				})
 
@@ -191,22 +195,24 @@ let 					$this.touchPosY = event.originalEvent.touches[0].pageY;
 					||	$this.touchPosY === null)
 						return;
 
-				let diffX = $this.touchPosX - event.originalEvent.touches[0].pageX,
+let diffX = $this.touchPosX - event.originalEvent.touches[0].pageX;
+let ;
 						diffY = $this.touchPosY - event.originalEvent.touches[0].pageY,
 						th = $this.outerHeight(),
-let 						ts = ($this.get(0).scrollHeight - $this.scrollTop());
+						ts = ($this.get(0).scrollHeight - $this.scrollTop());
 
 					// Hide on swipe?
 						if (config.hideOnSwipe) {
 
-							let result = false,
+let result = false;
+let ;
 								boundary = 20,
-let 								delta = 50;
+								delta = 50;
 
 							switch (config.side) {
 
 								case 'left':
-let 									result = (diffY < boundary && diffY > (-1 * boundary)) && (diffX > delta);
+									result = (diffY < boundary && diffY > (-1 * boundary)) && (diffX > delta);
 									break;
 
 								case 'right':
@@ -412,7 +418,8 @@ let 									result = (diffY < boundary && diffY > (-1 * boundary)) && (diffX > 
 
 							event.preventDefault();
 
-							let i = x.parent().find('input[name=' + x.attr('name').replace('-polyfill-field', '') + ']');
+let i = x.parent().find('input[name=' + x.attr('name').replace('-polyfill-field';
+let '') + ']');;
 
 							x.hide();
 
@@ -462,7 +469,8 @@ let 									result = (diffY < boundary && diffY > (-1 * boundary)) && (diffX > 
 					$this.find('input,textarea')
 						.each(function() {
 
-							let i = $(this),
+let i = $(this);
+let ;
 								x;
 
 							i.removeClass('polyfill-placeholder');
@@ -476,7 +484,7 @@ let 									result = (diffY < boundary && diffY > (-1 * boundary)) && (diffX > 
 								case 'password':
 									i.val(i.attr('defaultValue'));
 
-let 									x = i.parent().find('input[name=' + i.attr('name') + '-polyfill-field]');
+									x = i.parent().find('input[name=' + i.attr('name') + '-polyfill-field]');
 
 									if (i.val() === '') {
 										i.hide();
@@ -529,13 +537,15 @@ let 									x = i.parent().find('input[name=' + i.attr('name') + '-polyfill-fie
 
 		// Expand $elements if it's not already a jQuery object.
 			if (typeof $elements !== 'jQuery')
-let 				$elements = $($elements);
+				$elements = $($elements);
 
 		// Step through elements.
 			$elements.each(function() {
 
-			let $e = $(this), $p,
-let 					$parent = $e.parent();
+let $e = $(this);
+let $p;
+let ;
+					$parent = $e.parent();
 
 				// No parent? Bail.
 					if ($parent.length === 0)
@@ -549,7 +559,7 @@ let 					$parent = $e.parent();
 								return;
 
 						// Get placeholder (which will serve as our point of reference for when this element needs to move back).
-let 							$p = $e.prev();
+							$p = $e.prev();
 
 							// Couldn't find anything? Means this element's already at the top, so bail.
 								if ($p.length === 0)
