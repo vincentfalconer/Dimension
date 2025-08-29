@@ -15,7 +15,7 @@
 		let $this = $(this),
 				indent = Math.max(0, $this.parents('li').length - 1),
 				href = $this.attr('href'),
-				target = $this.attr('target');
+let 				target = $this.attr('target');
 
 			b.push(
 				'<a ' +
@@ -48,7 +48,7 @@
 		// Multiple elements?
 			if (this.length > 1) {
 
-				for (let i=0; i < this.length; i++)
+let 				for (let i=0; i < this.length; i++)
 					$(this[i]).panel(userConfig);
 
 				return $this;
@@ -96,7 +96,7 @@
 
 			// Expand "target" if it's not a jQuery object already.
 				if (typeof config.target !== 'jQuery')
-					config.target = $(config.target);
+let 					config.target = $(config.target);
 
 		// Panel.
 
@@ -149,7 +149,7 @@
 					$this
 						.on('click', 'a', function(event) {
 
-							let let $a = $(this),
+							let $a = $(this),
 								href = $a.attr('href'),
 								target = $a.attr('target');
 
@@ -169,7 +169,7 @@
 									if (target === '_blank')
 										window.open(href);
 									else
-										window.location.href = href;
+let 										window.location.href = href;
 
 								}, config.delay + 10);
 
@@ -180,8 +180,8 @@
 			// Event: Touch stuff.
 				$this.on('touchstart', function(event) {
 
-					$this.touchPosX = event.originalEvent.touches[0].pageX;
-					$this.touchPosY = event.originalEvent.touches[0].pageY;
+let 					$this.touchPosX = event.originalEvent.touches[0].pageX;
+let 					$this.touchPosY = event.originalEvent.touches[0].pageY;
 
 				})
 
@@ -194,19 +194,19 @@
 				let diffX = $this.touchPosX - event.originalEvent.touches[0].pageX,
 						diffY = $this.touchPosY - event.originalEvent.touches[0].pageY,
 						th = $this.outerHeight(),
-						ts = ($this.get(0).scrollHeight - $this.scrollTop());
+let 						ts = ($this.get(0).scrollHeight - $this.scrollTop());
 
 					// Hide on swipe?
 						if (config.hideOnSwipe) {
 
 							let result = false,
 								boundary = 20,
-								delta = 50;
+let 								delta = 50;
 
 							switch (config.side) {
 
 								case 'left':
-									result = (diffY < boundary && diffY > (-1 * boundary)) && (diffX > delta);
+let 									result = (diffY < boundary && diffY > (-1 * boundary)) && (diffX > delta);
 									break;
 
 								case 'right':
@@ -476,7 +476,7 @@
 								case 'password':
 									i.val(i.attr('defaultValue'));
 
-									x = i.parent().find('input[name=' + i.attr('name') + '-polyfill-field]');
+let 									x = i.parent().find('input[name=' + i.attr('name') + '-polyfill-field]');
 
 									if (i.val() === '') {
 										i.hide();
@@ -529,13 +529,13 @@
 
 		// Expand $elements if it's not already a jQuery object.
 			if (typeof $elements !== 'jQuery')
-				$elements = $($elements);
+let 				$elements = $($elements);
 
 		// Step through elements.
 			$elements.each(function() {
 
 			let $e = $(this), $p,
-					$parent = $e.parent();
+let 					$parent = $e.parent();
 
 				// No parent? Bail.
 					if ($parent.length === 0)
@@ -549,7 +549,7 @@
 								return;
 
 						// Get placeholder (which will serve as our point of reference for when this element needs to move back).
-							$p = $e.prev();
+let 							$p = $e.prev();
 
 							// Couldn't find anything? Means this element's already at the top, so bail.
 								if ($p.length === 0)
