@@ -106,9 +106,17 @@
 					}
 					config.target = $(config.target);
 				}
-				// If it's not a string or jQuery object, try to wrap as jQuery object directly
+				// If it's not a string or jQuery object, carefully allow only DOM Nodes as target.
 				else if (!config.target || typeof config.target !== 'object' || !('jquery' in config.target)) {
-					config.target = $(config.target);
+					// If it's a DOM Node (Element, Document, etc.), accept
+					if (
+						(typeof Element !== 'undefined' && config.target instanceof Element) ||
+						(typeof Node !== 'undefined' && config.target instanceof Node)
+					) {
+						config.target = $(config.target);
+					} else {
+						throw new Error('Invalid value for panel "target": Only selector strings, jQuery objects, or DOM Nodes are permitted.');
+					}
 				}
 		// Panel.
 
