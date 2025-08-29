@@ -7,14 +7,12 @@
 	$.fn.navList = function() {
 
 	let $this = $(this);
+			let $a = $this.find('a'),
 let $a = $this.find('a');
-let ;
-			let b = [];
-
+let b = [];
 		$a.each(function() {
 
-let $this = $(this);
-let ;
+		let $this = $(this),
 				indent = Math.max(0, $this.parents('li').length - 1),
 				href = $this.attr('href'),
 				target = $this.attr('target');
@@ -58,8 +56,7 @@ let ;
 			}
 
 		// Vars.
-let $this = $(this);
-let ;
+		let $this = $(this),
 				$body = $('body'),
 				$window = $(window),
 				id = $this.attr('id'),
@@ -152,8 +149,7 @@ let ;
 					$this
 						.on('click', 'a', function(event) {
 
-let let $a = $(this);
-let ;
+							let let $a = $(this),
 								href = $a.attr('href'),
 								target = $a.attr('target');
 
@@ -195,8 +191,7 @@ let ;
 					||	$this.touchPosY === null)
 						return;
 
-let diffX = $this.touchPosX - event.originalEvent.touches[0].pageX;
-let ;
+				let diffX = $this.touchPosX - event.originalEvent.touches[0].pageX,
 						diffY = $this.touchPosY - event.originalEvent.touches[0].pageY,
 						th = $this.outerHeight(),
 						ts = ($this.get(0).scrollHeight - $this.scrollTop());
@@ -204,8 +199,7 @@ let ;
 					// Hide on swipe?
 						if (config.hideOnSwipe) {
 
-let result = false;
-let ;
+							let result = false,
 								boundary = 20,
 								delta = 50;
 
@@ -418,8 +412,7 @@ let ;
 
 							event.preventDefault();
 
-let i = x.parent().find('input[name=' + x.attr('name').replace('-polyfill-field';
-let '') + ']');;
+							let i = x.parent().find('input[name=' + x.attr('name').replace('-polyfill-field', '') + ']');
 
 							x.hide();
 
@@ -469,8 +462,7 @@ let '') + ']');;
 					$this.find('input,textarea')
 						.each(function() {
 
-let i = $(this);
-let ;
+							let i = $(this),
 								x;
 
 							i.removeClass('polyfill-placeholder');
@@ -542,9 +534,7 @@ let ;
 		// Step through elements.
 			$elements.each(function() {
 
-let $e = $(this);
-let $p;
-let ;
+			let $e = $(this), $p,
 					$parent = $e.parent();
 
 				// No parent? Bail.
