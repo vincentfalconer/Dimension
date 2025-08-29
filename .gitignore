@@ -11,3 +11,38 @@ env
 # Optional: Ignore backup folders if you ever move them inside the repo
 Dimension-backup/
 backup/
+
+# Ignore Python cache files
+__pycache__/
+*.py[cod]
+*.so
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore logs and temporary files
+*.log
+*.tmp
+
+# Ignore compiled files
+*.exe
+*.dll
+*.obj
+*.o
+*.a
+*.lib
+*.bin
+
+# Ignore editor/IDE settings
+.vscode/
+.idea/
+
+# Allow important project files
+!LICENSE.MD
+!README.MD
+!index.html
+!*.py
+!assets/
+!images/
+!error/
